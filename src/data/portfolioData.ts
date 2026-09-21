@@ -11,7 +11,7 @@ export interface Project {
   summary: string
   architectureNodes?: { label: string; description: string }[]
   highlights: string[]
-  category: 'ai-ml' | 'systems' | 'data' | 'web'
+  category: 'systems' | 'web' | 'backend' | 'ai-ml'
 }
 
 export interface ArchiveProject {
@@ -22,6 +22,7 @@ export interface ArchiveProject {
   month?: string
   technologies: string[]
   githubUrl?: string
+  liveUrl?: string
   description: string
   patternsOrFeatures?: string[]
 }
@@ -39,323 +40,647 @@ export interface SkillCategory {
   skills: string[]
 }
 
+export interface GitRepository {
+  name: string
+  lang: string
+  branch: string
+  tag: string
+  githubUrl?: string
+}
+
 export const PERSONAL_INFO = {
   name: 'Ayanfe K Ikujebi',
   firstName: 'Ayanfe',
   lastName: 'Ikujebi',
-  role: 'Software Engineer',
-  positioning: 'Software Engineer | AI/ML & Full-Stack Developer',
+  role: 'Software Developer',
+  positioning: 'Full-Stack Software Developer',
   location: 'Lagos, Nigeria',
   university: 'University of Lagos',
-  degree: 'Bachelor of Science — Bussiness Administration',
-  graduationYear: '2021',
+  degree: 'Bachelor of Science — Business Administration',
+  graduationYear: '2020',
   cgpa: '3.62 / 5',
-  currentYear: 'Software Engineer',
+  currentYear: 'Software Developer',
   email: 'ikujebikehinde@gmail.com',
   phone: '+234 8137977542',
   github: 'https://github.com/ikujebi',
   linkedin: 'https://www.linkedin.com/in/kehinde-ikujebi-770420437/',
-  leetcode: 'https://leetcode.com/u/ikujebi/',
   summary:
-    "I'm a Software developer who enjoys building things, solving problems, and learning by doing. I'm particularly interested in software development, data, machine learning, and generative AI.",
-  statementBig: "I LIKE TURNING IDEAS INTO THINGS PEOPLE CAN ACTUALLY USE.",
+    'I’m a software developer focused on building practical, production-oriented web applications and backend systems. I work across frontend, backend, databases, APIs, authentication, and cloud deployment, while continuously exploring AI-powered features and machine learning technologies.',
+  statementBig: 'I LIKE TURNING IDEAS INTO THINGS PEOPLE CAN ACTUALLY USE.',
 }
+
+export const TERMINAL_REPOSITORIES: GitRepository[] = [
+  {
+    name: 'wordnest',
+    lang: 'NestJS / TypeScript',
+    branch: 'main',
+    tag: 'Church Management API',
+    githubUrl: 'https://github.com/Ikujebi/wordnest',
+  },
+  {
+    name: 'wtbcportal',
+    lang: 'Next.js / TypeScript',
+    branch: 'main',
+    tag: 'Church Management Portal',
+  },
+  {
+    name: 'lummina-law',
+    lang: 'Next.js / Prisma',
+    branch: 'main',
+    tag: 'Legal Platform',
+  },
+  {
+    name: 'ai-llm-experiments',
+    lang: 'Python / PyTorch',
+    branch: 'main',
+    tag: 'LLM & ML Labs',
+    githubUrl: 'https://github.com/Ikujebi',
+  },
+  {
+    name: 'portfolio',
+    lang: 'React / Next.js',
+    branch: 'main',
+    tag: 'Personal Portfolio',
+    githubUrl: 'https://github.com/Ikujebi',
+  },
+]
 
 export const FEATURED_PROJECTS: Project[] = [
   {
-    id: 'ledgr',
+    id: 'wtbc',
     number: '01',
-    title: 'LEDGR',
-    subtitle: 'AI-Powered Finance Controller & Auditor',
+    title: 'WORD TABERNACLE',
+    subtitle: 'Church Management & Digital Operations Platform',
     year: '2026',
-    technologies: ['Python', 'FastAPI', 'SQLite', 'Machine Learning', 'NVIDIA NIM / LLM'],
-    githubUrl: 'https://github.com/AyanfeIkujebi7/Ledgr---Finance-AI',
-    liveUrl: 'https://ledgr-finance-ai.vercel.app/',
-    summary:
-      'An AI-powered finance controller for auditing transactions, settlements, and merchant activity.',
-    architectureNodes: [
-      { label: 'DATABASE & INGEST', description: 'SQLite transactional engine parsing merchants, settlements, and dispute ledgers.' },
-      { label: 'DATA QUALITY', description: 'Real-time schema profiling, completeness checks, and integrity audits.' },
-      { label: 'RECONCILIATION', description: 'Multi-way automated ledger matching across refunds, disputes, and fee schedules.' },
-      { label: 'ANOMALY DETECTION', description: 'Hybrid engine combining domain financial rules with IsolationForest outlier modeling.' },
-      { label: 'RISK SCORING', description: 'Dynamic merchant risk categorization and behavioral flag indexing.' },
-      { label: 'NVIDIA NIM / LLM', description: 'Natural-language queries over financial databases, what-if simulations, and automated case reporting.' },
-    ],
-    highlights: [
-      'Hybrid anomaly detection: Domain rule engine + IsolationForest ML models',
-      'NVIDIA NIM / LLM-powered natural-language financial querying',
-      'Automated settlement reconciliation across refunds, dispute fees, and merchant payouts',
-      'Merchant risk evaluation, data-quality profiling, and automated audit reporting',
-      'Database snapshot comparison & what-if financial simulations',
-    ],
-    category: 'ai-ml',
-  },
-  {
-    id: 'resonix',
-    number: '02',
-    title: 'RESONIX',
-    subtitle: 'Social Engagement Analytics Platform',
-    year: '2026',
-    timeline: 'Aug 2026 – Sep 2026',
+    timeline: '2026 – Present',
     technologies: [
-      'Python',
-      'Streamlit',
-      'Pandas',
-      'NumPy',
-      'Scikit-learn',
-      'SciPy',
-      'TextBlob',
-      'spaCy',
-      'Plotly',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'NestJS',
+      'Prisma',
       'PostgreSQL',
+      'Supabase',
+      'Cloudinary',
+      'Vercel',
+      'Render',
     ],
-    githubUrl: 'https://github.com/AyanfeIkujebi7/Resonix-Social-Engagement-Analytics',
-    liveUrl: 'https://AyanfeIkujebi7-resonix-social-engagement-ana-dashboardapp-izgguh.streamlit.app/',
+    liveUrl: 'https://portal.wordtabernacle.org.ng/',
     summary:
-      'A social analytics platform for understanding content performance, audience sentiment, experiments, and trends.',
+      'A full-stack church management platform designed to bring members, departments, workers, communications, events, prayer requests, content, analytics, and administrative operations into one system.',
     architectureNodes: [
-      { label: 'CONTENT METRICS', description: 'Engagement metrics, viral coefficient calculation, and performance scoring.' },
-      { label: 'AUDIENCE SIGNALS', description: 'Topic clustering, format analysis, and hook-type classification.' },
-      { label: 'NLP SENTIMENT', description: 'Linguistic polarity and subjectivity pipeline using TextBlob & spaCy.' },
-      { label: 'SCIPY EXPERIMENTS', description: 'Rigorous A/B hypothesis testing and statistical confidence verification.' },
-      { label: 'TREND FORECASTING', description: 'Time-series momentum indicators and growth trajectory modeling.' },
-      { label: 'RECOMMENDATION', description: 'Data-driven content strategy advice and publishing timing optimization.' },
+      {
+        label: 'PORTAL FRONTEND',
+        description:
+          'Next.js and TypeScript application providing role-aware dashboards and responsive interfaces for church administration.',
+      },
+      {
+        label: 'BACKEND API',
+        description:
+          'NestJS REST API handling authentication, business logic, permissions, communications, content, and administrative workflows.',
+      },
+      {
+        label: 'AUTH & RBAC',
+        description:
+          'JWT authentication, refresh-token workflows, email verification, password recovery, protected routes, and role-based access control.',
+      },
+      {
+        label: 'DATABASE',
+        description:
+          'PostgreSQL database managed through Prisma and Supabase for structured church, membership, operational, and communication data.',
+      },
+      {
+        label: 'MEDIA & CONTENT',
+        description:
+          'Cloudinary-powered media handling for profile pictures and other uploaded assets alongside church content management.',
+      },
+      {
+        label: 'PRODUCTION INFRASTRUCTURE',
+        description:
+          'Frontend deployment through Vercel and backend deployment through Render with production API and custom domain configuration.',
+      },
     ],
     highlights: [
-      'Viral coefficient analysis & multidimensional content ranking',
-      'Dual-engine NLP sentiment pipeline powered by TextBlob and spaCy',
-      'Hypothesis testing & A/B performance verification with SciPy',
-      'Trend forecasting, format retention analysis, and recommendation generation',
-      'Interactive Streamlit web interface connected to a PostgreSQL database with Plotly visuals',
-    ],
-    category: 'data',
-  },
-  {
-    id: 'hotel-intelligence',
-    number: '03',
-    title: 'HOTEL GUEST INTELLIGENCE',
-    subtitle: 'Revenue Optimization & Booking Cancellation Analysis',
-    year: '2026',
-    technologies: ['RapidMiner', 'Power BI', 'Machine Learning', 'Data Mining'],
-    githubUrl: 'https://github.com/AyanfeIkujebi7/Hotel-booking-analysis-ml',
-    summary:
-      'Using hotel booking data to understand cancellations, guest behavior, and revenue opportunities.',
-    architectureNodes: [
-      { label: 'DATA PREPROCESSING', description: 'Outlier cleaning, lead-time normalization, and categorical feature encoding.' },
-      { label: 'CLASSIFICATION PIPELINE', description: 'Supervised predictive modeling to determine cancellation probability.' },
-      { label: 'BEHAVIORAL PROFILING', description: 'Guest segmentation based on booking channels, deposit types, and party size.' },
-      { label: 'SEASONAL DYNAMICS', description: 'Peak vs. shoulder demand forecasting and room-night revenue sensitivity.' },
-      { label: 'POWER BI DASHBOARDS', description: 'Interactive decision-support views for revenue managers and operational staff.' },
-    ],
-    highlights: [
-      'Supervised classification models predicting reservation cancellation risks',
-      'Lead-time distribution analysis and customer behavior profiling',
-      'Seasonal trend decomposition for room demand and occupancy forecasting',
-      'Data-driven insights to mitigate empty-room losses and optimize pricing',
-      'End-to-end ML workflows built in RapidMiner with Power BI dashboards',
-    ],
-    category: 'ai-ml',
-  },
-  {
-    id: 'groupdna',
-    number: '04',
-    title: 'GROUPDNA',
-    subtitle: 'WhatsApp Chat Behavioral Analytics System',
-    year: '2026',
-    technologies: ['Python', 'NumPy', 'datetime'],
-    githubUrl: 'https://github.com/AyanfeIkujebi7/GroupDNA-WhatsApp-Chat-Analyzer',
-    summary:
-      'Turning exported group conversations into patterns around activity, timing, and interaction.',
-    architectureNodes: [
-      { label: 'CHAT PARSER', description: 'Parses exported chat text, system notices, deletions, and multiline messages.' },
-      { label: 'ACTIVITY METRICS', description: 'Timestamp analysis isolating hourly frequency, busiest days, and active windows.' },
-      { label: 'NUMPY HEATMAP', description: 'Activity density matrix mapping engagement frequency across hours and days.' },
-      { label: 'RESPONSE LATENCY', description: 'Turn-taking calculations, reply intervals, and longest silence streaks.' },
-      { label: 'ARCHETYPE DETECTION', description: 'Rule-based classification identifying conversational patterns and roles.' },
-    ],
-    highlights: [
-      'Parsing of exported chat streams with handling for media and multiline text',
-      'NumPy activity heatmap mapping hourly and daily interaction patterns',
-      'Participant response-time analysis, active hours, and quiet periods',
-      'Word-frequency indexing with customizable stop-word exclusion',
-      'Rule-based conversational archetype detection producing structured reports',
+      'Unified church management architecture spanning members, departments, workers, events, attendance, giving, and communications',
+      'Role-based access control supporting SUPER_ADMIN, ADMIN, and MEMBER workflows',
+      'Authentication system with access tokens, refresh tokens, email verification, and password recovery',
+      'Prayer request management with administrative workflows and communication integration',
+      'Custom web analytics system for tracking public website activity',
+      'Production deployment using Vercel, Render, Supabase, Cloudinary, and a custom API domain',
     ],
     category: 'systems',
+  },
+  {
+    id: 'lummina-law',
+    number: '02',
+    title: 'LUMMINA LAW',
+    subtitle: 'Legal Business & Client Management Platform',
+    year: '2026',
+    timeline: '2026 – Present',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'Supabase',
+      'Tailwind CSS',
+      'REST APIs',
+      'Vercel',
+    ],
+    liveUrl: 'https://legal.lumminalaw.com/',
+    summary:
+      'A full-stack legal platform designed to connect legal professionals and clients while providing structured workflows for a growing legal business.',
+    architectureNodes: [
+      {
+        label: 'APPLICATION LAYER',
+        description:
+          'Next.js application providing role-aware interfaces for administrators, lawyers, and clients.',
+      },
+      {
+        label: 'DATA LAYER',
+        description:
+          'PostgreSQL persistence through Prisma and Supabase for users, legal workflows, and application data.',
+      },
+      {
+        label: 'ROLE MANAGEMENT',
+        description:
+          'Application-level authorization supporting ADMIN, LAWYER, and CLIENT roles.',
+      },
+      {
+        label: 'BACKEND WORKFLOWS',
+        description:
+          'Server-side application logic and API workflows connecting user actions to persistent business data.',
+      },
+      {
+        label: 'PRODUCTION DEPLOYMENT',
+        description:
+          'Cloud-hosted application architecture configured for a public legal product and custom domain.',
+      },
+    ],
+    highlights: [
+      'Full-stack legal application built around real business workflows',
+      'Role-aware experience for administrators, lawyers, and clients',
+      'Prisma-based PostgreSQL data architecture',
+      'Supabase-backed production database infrastructure',
+      'Responsive application interface designed for practical business use',
+    ],
+    category: 'web',
+  },
+  {
+    id: 'wordnest',
+    number: '03',
+    title: 'WORDNEST',
+    subtitle: 'NestJS Backend & Management API',
+    year: '2026',
+    timeline: '2026 – Present',
+    technologies: [
+      'NestJS',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'Supabase',
+      'JWT',
+      'REST API',
+      'Cloudinary',
+      'Render',
+    ],
+    githubUrl: 'https://github.com/Ikujebi/wordnest',
+    liveUrl: 'https://api.wordtabernacle.org.ng/',
+    summary:
+      'The backend service powering the Word Tabernacle management ecosystem, built around modular NestJS architecture, secure authentication, role-based access, and production API workflows.',
+    architectureNodes: [
+      {
+        label: 'NESTJS MODULES',
+        description:
+          'Modular backend architecture separating authentication, users, administration, communications, content, notifications, and domain workflows.',
+      },
+      {
+        label: 'AUTHENTICATION',
+        description:
+          'JWT access and refresh token architecture with verification, password recovery, account locking, and protected API routes.',
+      },
+      {
+        label: 'AUTHORIZATION',
+        description:
+          'Role-based permissions controlling access to administrative and member-facing functionality.',
+      },
+      {
+        label: 'PRISMA & POSTGRESQL',
+        description:
+          'Type-safe database access through Prisma connected to Supabase PostgreSQL.',
+      },
+      {
+        label: 'OBSERVABILITY & AUDITING',
+        description:
+          'Logging, audit records, request handling, throttling, timeout controls, and structured API responses.',
+      },
+      {
+        label: 'MEDIA & EMAIL',
+        description:
+          'Cloudinary integration for media management and transactional email workflows for authentication and account operations.',
+      },
+    ],
+    highlights: [
+      'Production-oriented NestJS REST API architecture',
+      'JWT access and refresh token authentication',
+      'Email verification and password recovery workflows',
+      'Role-based authorization and administrative permissions',
+      'Prisma + PostgreSQL data access through Supabase',
+      'Cloudinary and transactional email integrations',
+      'Audit logging, throttling, timeout handling, and structured API infrastructure',
+    ],
+    category: 'backend',
+  },
+  {
+    id: 'portfolio',
+    number: '04',
+    title: 'AYANFE.DEV',
+    subtitle: 'Personal Developer Portfolio',
+    year: '2026',
+    timeline: '2026 – Present',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'React',
+      'Vercel',
+    ],
+    liveUrl: 'https://ayanfetech-hub.vercel.app/',
+    summary:
+      'A developer portfolio focused on showing how I build real software systems, the technologies behind them, and the progression of my engineering work.',
+    architectureNodes: [
+      {
+        label: 'NEXT.JS',
+        description:
+          'Modern React-based application architecture using Next.js for routing, rendering, and application structure.',
+      },
+      {
+        label: 'COMPONENT SYSTEM',
+        description:
+          'Reusable React components used to create interactive portfolio sections and project presentations.',
+      },
+      {
+        label: 'DESIGN SYSTEM',
+        description:
+          'Tailwind-based visual system focused on a polished, technical, and responsive developer experience.',
+      },
+      {
+        label: 'PROJECT DATA',
+        description:
+          'Centralized project, skill, certification, and development-history data powering the portfolio.',
+      },
+    ],
+    highlights: [
+      'Designed around real software projects rather than generic skill lists',
+      'Interactive project archive and technology matrix',
+      'Responsive React and Next.js component architecture',
+      'Focused presentation of full-stack engineering experience',
+    ],
+    category: 'web',
   },
 ]
 
 export const ARCHIVE_PROJECTS: ArchiveProject[] = [
   {
-    id: 'redflag-sql',
-    title: 'RedFlag SQL — Financial Fraud Detection',
-    subtitle: 'Transaction monitoring & behavioral anomaly queries',
+    id: 'gnn-graph-embeddings',
+    title: 'Graph Neural Network Experiments',
+    subtitle: 'PyTorch Geometric research & relational data learning',
     year: '2026',
-    technologies: ['MySQL', 'SQL Window Functions', 'CTEs', 'Data Aggregation'],
-    githubUrl: 'https://github.com/AyanfeIkujebi7/Redflag-sql-fraud-detection',
+    month: 'Sep 2026',
+    technologies: [
+      'Python',
+      'PyTorch',
+      'PyTorch Geometric',
+      'GNN',
+      'Machine Learning',
+    ],
+    githubUrl: 'https://github.com/Ikujebi',
     description:
-      'Analyzed a financial dataset of ~200,000 transactions to uncover fraudulent user and merchant operations across 12 behavioral patterns.',
+      'Exploratory Graph Neural Network models built with PyTorch Geometric to evaluate node classification, link prediction, and representation learning on graph-structured data.',
     patternsOrFeatures: [
-      'Velocity Fraud: 30+ transactions within 24 hours (COUNT, GROUP BY, HAVING)',
-      'Round-Amount Clustering: Detection of structured structuring amounts',
-      'Account Takeover Patterns: Sudden geographic shifts and device anomalies',
-      'Merchant-User Relationship Anomalies: High-frequency single-merchant loops',
-      'Refund & Failed Transaction Spikes: Rapid failure escalation alerts',
+      'Graph Convolutional Network (GCN) and GraphSAGE implementations',
+      'Node classification pipelines on structured citation and relational graphs',
+      'Custom PyTorch Geometric dataset loading and preprocessing scripts',
+      'Embedding visualizations using t-SNE reduction',
     ],
   },
   {
-    id: 'bank-txn-analysis',
-    title: 'Bank Transaction Analysis System',
-    subtitle: 'Automated statement normalization & Z-score analytics',
+    id: 'llm-tokenizer-lab',
+    title: 'LLM Tokenization & Fine-Tuning Labs',
+    subtitle: 'Transformer mechanics, token analysis & API integrations',
     year: '2026',
-    technologies: ['Python', 'Pandas', 'Z-Score Analysis', 'Data Cleaning'],
-    githubUrl: 'https://github.com/AyanfeIkujebi7/Bank-transaction-analysis-system',
+    month: 'Aug 2026',
+    technologies: [
+      'Python',
+      'Transformers',
+      'PyTorch',
+      'LLM',
+      'FastAPI',
+      'AI',
+    ],
+    githubUrl: 'https://github.com/Ikujebi',
     description:
-      'A data analytics system that cleans raw bank statements, standardizes currency formats, extracts normalized merchant names, and isolates unusual transactions using statistical Z-scores.',
+      'Practical experiments analyzing transformer architecture tokenization strategies, token sequence constraints, and integrating local and API-hosted LLMs into web services.',
     patternsOrFeatures: [
-      'Raw statement data cleaning: Date standardizing, currency stripping (₹, Rs.)',
-      'Merchant name extraction & normalization via keyword dictionary matching',
-      '10-category expense classification (Shopping, Utilities, Groceries, Transport, etc.)',
-      'Net savings, savings rate, and temporal time-of-day spending distribution',
-      'Z-score anomaly detection flags high-value unexpected outflows',
+      'Subword BPE tokenization analysis across English and regional language corpora',
+      'FastAPI wrapper around LLM inference endpoints with structured JSON parsing',
+      'Prompt engineering templates for context retrieval and response generation',
+      'Benchmarking token throughput and context window management',
+    ],
+  },
+  {
+    id: 'church-analytics',
+    title: 'WTBC Web Analytics',
+    subtitle: 'Custom website analytics and reporting system',
+    year: '2026',
+    technologies: [
+      'Next.js',
+      'NestJS',
+      'TypeScript',
+      'PostgreSQL',
+      'Prisma',
+      'Supabase',
+    ],
+    description:
+      'A custom analytics system built for the Word Tabernacle ecosystem to track website activity without relying entirely on a third-party analytics platform.',
+    patternsOrFeatures: [
+      'Public analytics event tracking endpoint',
+      'Daily visitor snapshot processing',
+      'IP hashing for analytics-oriented privacy',
+      'Administrative visitor reporting',
+      'PostgreSQL persistence through Prisma',
+    ],
+  },
+  {
+    id: 'prayer-management',
+    title: 'Prayer Request Management',
+    subtitle: 'Structured prayer, follow-up, and communication workflow',
+    year: '2026',
+    technologies: [
+      'Next.js',
+      'NestJS',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+    ],
+    description:
+      'A church workflow for receiving, organizing, reviewing, and following up on prayer requests while connecting requests with broader communication processes.',
+    patternsOrFeatures: [
+      'Structured prayer request records',
+      'Administrative request management',
+      'Prayer request notes and follow-up workflows',
+      'Department-oriented operational workflows',
+      'Communication integration for member follow-up',
+    ],
+  },
+  {
+    id: 'communication-system',
+    title: 'Church Communication System',
+    subtitle: 'Multi-channel communication infrastructure',
+    year: '2026',
+    technologies: [
+      'NestJS',
+      'TypeScript',
+      'PostgreSQL',
+      'Prisma',
+      'REST APIs',
+    ],
+    description:
+      'A communication architecture designed to support structured church announcements, newsletters, devotionals, event messages, prayer updates, follow-ups, and other operational communication.',
+    patternsOrFeatures: [
+      'Communication types for different church workflows',
+      'Recipient management and delivery records',
+      'Email communication architecture',
+      'Extensible channel model for SMS, push, WhatsApp, and in-app messaging',
+      'Communication logging for administrative visibility',
+    ],
+  },
+  {
+    id: 'authentication-system',
+    title: 'Production Authentication Architecture',
+    subtitle: 'JWT authentication, account security, and RBAC',
+    year: '2026',
+    technologies: [
+      'NestJS',
+      'TypeScript',
+      'JWT',
+      'PostgreSQL',
+      'Prisma',
+    ],
+    description:
+      'A reusable authentication architecture developed as part of larger production applications, covering identity, sessions, verification, recovery, and role-based authorization.',
+    patternsOrFeatures: [
+      'Access and refresh token workflows',
+      'Email verification',
+      'Password reset and recovery tokens',
+      'Protected API routes',
+      'Role-based access control',
+      'Account locking and authentication safeguards',
+    ],
+  },
+  {
+    id: 'lummina-law',
+    title: 'Lummina Law Platform',
+    subtitle: 'Legal business application',
+    year: '2026',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'Supabase',
+    ],
+    description:
+      'A full-stack legal application built around real business workflows and role-specific experiences for administrators, lawyers, and clients.',
+    patternsOrFeatures: [
+      'Role-aware application architecture',
+      'PostgreSQL persistence through Prisma',
+      'Supabase database infrastructure',
+      'Responsive business interfaces',
+      'Production deployment configuration',
     ],
   },
   {
     id: 'job-finder',
     title: 'Job Finder Application',
-    subtitle: 'Full-stack role discovery and filtered search engine',
+    subtitle: 'Full-stack role discovery and filtered search application',
     year: '2025',
     month: 'Oct 2025',
-    technologies: ['JavaScript', 'Node.js', 'SQL', 'HTML', 'CSS'],
-    description:
-      'Developed a full-stack job discovery application enabling users to query roles based on technical skills, locations, and titles with database persistence for saved listings.',
-    patternsOrFeatures: [
-      'Structured SQL database queries for skill, location, and title filters',
-      'User saved-job bookmarking with persistent database storage',
-      'Accessible, clean interface designed with semantic HTML and CSS',
-      'Modular Node.js server architecture with object-oriented service organization',
+    technologies: [
+      'JavaScript',
+      'Node.js',
+      'SQL',
+      'HTML',
+      'CSS',
     ],
-  },
-  {
-    id: 'monthly-expense-tracker',
-    title: 'Monthly Expense Tracker',
-    subtitle: 'Categorized expenditure recording & budget analytics',
-    year: '2025',
-    month: 'Aug 2025',
-    technologies: ['Python', 'SQL', 'Data Analytics'],
     description:
-      'Engineered a personal financial recording system to track daily expenditures, categorize outflow streams, and generate month-over-month summaries.',
+      'A full-stack job discovery application built to help users search for opportunities using structured filters and save relevant listings.',
     patternsOrFeatures: [
-      'Structured expenditure logging with categorization engine',
-      'Relational database storage and transactional integrity',
-      'Month-wise spending pattern analysis and financial planning indicators',
+      'Multi-criteria job search by skills, location, and title',
+      'Persistent saved-job functionality',
+      'SQL-backed application data',
+      'Modular Node.js server architecture',
+      'Semantic HTML and responsive interface development',
     ],
   },
 ]
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    name: 'LANGUAGES',
-    tagline: 'Languages I use across my projects.',
-    skills: ['Python', 'Java', 'JavaScript', 'C', 'C++', 'SQL'],
+    name: 'FRONTEND',
+    tagline: 'Building responsive interfaces and modern web applications.',
+    skills: [
+      'TypeScript',
+      'JavaScript',
+      'React',
+      'Next.js',
+      'Tailwind CSS',
+      'HTML',
+      'CSS',
+      'MUI',
+      'Ant Design',
+    ],
   },
   {
-    name: 'CORE COMPUTER SCIENCE',
-    tagline: 'Core concepts that shape how I build software.',
+    name: 'BACKEND',
+    tagline: 'Designing APIs, services, authentication, and application logic.',
     skills: [
-      'Data Structures & Algorithms',
-      'Object-Oriented Programming',
-      'Database Management Systems',
-      'Operating Systems',
+      'Node.js',
+      'NestJS',
+      'Python',
+      'REST APIs',
+      'Prisma',
+      'Flask',
+      'FastAPI',
+      'Authentication',
+      'JWT',
+      'RBAC',
+    ],
+  },
+  {
+    name: 'DATABASES & CLOUD',
+    tagline: 'Working with application data and production infrastructure.',
+    skills: [
+      'PostgreSQL',
+      'Supabase',
+      'MongoDB',
+      'Mongoose',
+      'Cloudinary',
+      'Vercel',
+      'Render',
     ],
   },
   {
     name: 'AI & MACHINE LEARNING',
-    tagline: 'Machine learning, data science, NLP, and generative AI.',
+    tagline: 'Exploring neural architectures, LLMs, and intelligent application features.',
     skills: [
-      'Machine Learning',
-      'Generative AI',
-      'Data Science',
+      'Python',
+      'PyTorch',
+      'PyTorch Geometric (PyG)',
+      'Transformers',
+      'LLM Fine-Tuning & Integration',
+      'Prompt Engineering',
+      'Speech-to-Text',
+      'AI API Integrations',
     ],
   },
   {
-    name: 'DATA & ANALYTICS',
-    tagline: 'Working with data, analysis, and visualization.',
-    skills: ['NumPy', 'Pandas', 'Power BI', 'RapidMiner', 'NoSQL'],
+    name: 'ENGINEERING',
+    tagline: 'Tools and practices I use to build, test, and ship software.',
+    skills: [
+      'Git',
+      'GitHub',
+      'Postman',
+      'TanStack Query',
+      'API Design',
+      'Cloud Deployment',
+      'Docker',
+    ],
   },
   {
-    name: 'WEB DEVELOPMENT',
-    tagline: 'Building interfaces and backend applications.',
-    skills: ['HTML', 'CSS', 'Node.js'],
-  },
-  {
-    name: 'ENGINEERING TOOLS',
-    tagline: 'Tools I use to build and manage projects.',
-    skills: ['Git', 'GitHub'],
+    name: 'CURRENTLY BUILDING WITH',
+    tagline: 'Technologies I am actively expanding my engineering range with.',
+    skills: [
+      'Go',
+      'ASP.NET',
+      'Flask',
+      'FastAPI',
+      'PyTorch',
+      'AI Integrations',
+    ],
   },
 ]
 
 export const EVOLUTION_TIMELINE = [
   {
     period: '2025',
-    phase: 'LEARNING THE FOUNDATIONS',
+    phase: 'BUILDING THE FOUNDATIONS',
     description:
-      'Learning the fundamentals of programming, databases, and application development by building projects.',
+      'Developing stronger foundations in application development, databases, APIs, and full-stack web development through hands-on projects.',
     milestones: [
-      {
-        title: 'Monthly Expense Tracker',
-        date: 'Aug 2025',
-        focus: 'Data persistence, financial categorization, and SQL query design',
-      },
       {
         title: 'Job Finder Application',
         date: 'Oct 2025',
-        focus: 'Full-stack web architecture, Node.js, and multi-criteria query optimization',
+        focus:
+          'Full-stack application architecture, Node.js, SQL, search workflows, and persistent data',
+      },
+      {
+        title: 'Growing into Full-Stack Development',
+        date: '2025',
+        focus:
+          'Moving beyond frontend development into backend APIs, databases, authentication, and application architecture',
       },
     ],
   },
   {
     period: '2026',
-    phase: 'EXPLORING DATA & MACHINE LEARNING',
+    phase: 'BUILDING REAL-WORLD SYSTEMS',
     description:
-      'Exploring data analysis, machine learning, and ways to turn unstructured data into useful insights.',
+      'Applying frontend, backend, database, authentication, and cloud technologies to larger applications designed around real operational problems.',
     milestones: [
       {
-        title: 'Hotel Guest Intelligence',
+        title: 'Word Tabernacle Management Platform',
         date: '2026',
-        focus: 'RapidMiner classification models, booking cancellation predictions, and Power BI dashboards',
+        focus:
+          'Next.js, NestJS, PostgreSQL, Prisma, Supabase, authentication, RBAC, communications, and production deployment',
       },
       {
-        title: 'GroupDNA Behavioral Analytics',
-        date: 'Jun 2026',
-        focus: 'WhatsApp export stream parsing, NumPy activity heatmaps, and conversational archetypes',
+        title: 'Lummina Law Platform',
+        date: '2026',
+        focus:
+          'Full-stack business application architecture, role-based workflows, Prisma, PostgreSQL, and Supabase',
       },
       {
-        title: 'RedFlag SQL Fraud Detection',
-        date: 'Aug 2026',
-        focus: '200k financial transaction audit, CTEs, window functions, and 12 velocity/fraud patterns',
-      },
-      {
-        title: 'Bank Transaction Analysis',
-        date: 'Jul 2026',
-        focus: 'Pandas data cleaning, vendor normalization, and Z-score outlier detection',
+        title: 'Production Backend Architecture',
+        date: '2026',
+        focus:
+          'NestJS modular services, JWT authentication, refresh tokens, email verification, password recovery, audit logging, and API infrastructure',
       },
     ],
   },
   {
     period: '2026 PRESENT',
-    phase: 'BUILDING MORE COMPLEX SYSTEMS',
+    phase: 'EXPANDING THE ENGINEERING RANGE',
     description:
-      'Bringing together software, data, machine learning, and AI in larger projects.',
+      'Continuing to deepen full-stack engineering while exploring Python AI/ML workflows, Graph Neural Networks, Go, ASP.NET, and advanced backend systems.',
     milestones: [
       {
-        title: 'ResoniX Social Intelligence',
-        date: 'Aug–Sep 2026',
-        focus: 'Dual-engine NLP (TextBlob + spaCy), SciPy A/B testing, and PostgreSQL analytics',
+        title: 'AI & Graph Neural Network Exploration',
+        date: '2026',
+        focus:
+          'Studying PyTorch, PyTorch Geometric, Transformer tokenization, and integrating ML models with NestJS/FastAPI backends',
       },
       {
-        title: 'LEDGR AI Finance Controller',
-        date: 'Sep 2026',
-        focus: 'FastAPI, IsolationForest hybrid anomalies, settlement reconciliation, and NVIDIA NIM querying',
+        title: 'Go & ASP.NET',
+        date: '2026',
+        focus:
+          'Expanding backend engineering knowledge beyond the Node.js ecosystem',
+      },
+      {
+        title: 'Production System Design',
+        date: '2026',
+        focus:
+          'Deepening knowledge of authentication, authorization, APIs, databases, deployment, observability, and scalable application architecture',
       },
     ],
   },

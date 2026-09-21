@@ -1,69 +1,339 @@
 import React, { useState } from 'react'
-import { Code2, Cpu, Database, Sparkles, Terminal, Layers } from 'lucide-react'
-import { SKILL_CATEGORIES } from '../data/portfolioData'
+import {
+  Server,
+  Database,
+  Sparkles,
+  Terminal,
+  Layers,
+} from 'lucide-react'
+
+interface SkillMeta {
+  tier: 'PRODUCTION' | 'BUILDING WITH' | 'LEARNING'
+  project: string
+  note: string
+}
+
+interface SkillCategory {
+  name: string
+  shortName: string
+  tagline: string
+  skills: string[]
+}
+
+const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    name: 'FRONTEND',
+    shortName: 'FRONTEND',
+    tagline:
+      'Building polished, responsive interfaces with modern React and Next.js.',
+    skills: [
+      'TypeScript',
+      'JavaScript',
+      'React',
+      'Next.js',
+      'Tailwind CSS',
+      'HTML',
+      'CSS',
+      'MUI',
+      'Ant Design',
+    ],
+  },
+  {
+    name: 'BACKEND',
+    shortName: 'BACKEND',
+    tagline:
+      'Designing APIs, authentication flows, business logic, and scalable server applications.',
+    skills: [
+      'Node.js',
+      'NestJS',
+      'REST APIs',
+      'Prisma',
+      'Flask',
+      'FastAPI',
+      'Go',
+      'ASP.NET',
+    ],
+  },
+  {
+    name: 'DATABASES & CLOUD',
+    shortName: 'DATA',
+    tagline:
+      'Working with relational and document databases, managed infrastructure, and cloud services.',
+    skills: [
+      'PostgreSQL',
+      'Supabase',
+      'MongoDB',
+      'Mongoose',
+      'Cloudinary',
+      'Vercel',
+      'Render',
+    ],
+  },
+  {
+    name: 'AI & AUTOMATION',
+    shortName: 'AI',
+    tagline:
+      'Exploring practical AI integrations that solve real product and workflow problems.',
+    skills: [
+      'LLM Integration',
+      'AI APIs',
+      'Prompt Engineering',
+      'Speech-to-Text',
+      'AI-assisted Workflows',
+    ],
+  },
+  {
+    name: 'ENGINEERING',
+    shortName: 'ENGINEERING',
+    tagline:
+      'The tools and engineering practices I use to build, test, ship, and maintain applications.',
+    skills: [
+      'Git',
+      'GitHub',
+      'Postman',
+      'TanStack Query',
+      'Authentication',
+      'RBAC',
+      'Docker',
+      'API Design',
+    ],
+  },
+]
+
+const SKILL_PROVENANCE: Record<string, SkillMeta> = {
+  TypeScript: {
+    tier: 'PRODUCTION',
+    project: 'WTBC Portal / Lummina Law',
+    note: 'Used extensively for production React, Next.js, NestJS, API clients, services, and strongly typed application logic.',
+  },
+  JavaScript: {
+    tier: 'PRODUCTION',
+    project: 'Web Applications',
+    note: 'One of my core languages for frontend development, Node.js applications, APIs, and interactive web experiences.',
+  },
+  React: {
+    tier: 'PRODUCTION',
+    project: 'WTBC Portal / Client Apps',
+    note: 'Used to build component-driven interfaces, dashboards, forms, modals, interactive workflows, and reusable UI systems.',
+  },
+  'Next.js': {
+    tier: 'PRODUCTION',
+    project: 'WTBC Portal / Lummina Law',
+    note: 'Used for production applications, App Router architecture, server components, authentication flows, APIs, and SEO-friendly pages.',
+  },
+  'Tailwind CSS': {
+    tier: 'PRODUCTION',
+    project: 'WTBC Portal / Web Projects',
+    note: 'My preferred approach for building responsive interfaces and polished product UI.',
+  },
+  'Node.js': {
+    tier: 'PRODUCTION',
+    project: 'Backend APIs',
+    note: 'Used for server-side JavaScript, API services, integrations, authentication, and backend application logic.',
+  },
+  NestJS: {
+    tier: 'PRODUCTION',
+    project: 'WordNest',
+    note: 'Used to build a structured production backend with modules, services, authentication, guards, interceptors, Prisma, and PostgreSQL.',
+  },
+  'REST APIs': {
+    tier: 'PRODUCTION',
+    project: 'Web Applications',
+    note: 'Designed and consumed APIs for authentication, dashboards, church management, communications, analytics, media, and other application features.',
+  },
+  Prisma: {
+    tier: 'PRODUCTION',
+    project: 'WordNest / Lummina Law',
+    note: 'Used for typed database access, schema management, migrations, relationships, and application data models.',
+  },
+  PostgreSQL: {
+    tier: 'PRODUCTION',
+    project: 'Supabase Projects',
+    note: 'Used as the relational database layer for production applications and complex application data.',
+  },
+  Supabase: {
+    tier: 'PRODUCTION',
+    project: 'WTBC / Lummina Law',
+    note: 'Used for managed PostgreSQL infrastructure and application data services.',
+  },
+  MongoDB: {
+    tier: 'PRODUCTION',
+    project: 'Web Applications',
+    note: 'Used for document-oriented application data and Node.js applications.',
+  },
+  Mongoose: {
+    tier: 'PRODUCTION',
+    project: 'Node.js Applications',
+    note: 'Used for MongoDB schema modeling, validation, relationships, and database access.',
+  },
+  Flask: {
+    tier: 'BUILDING WITH',
+    project: 'Python Projects',
+    note: 'Used while expanding my Python backend development skills and working with lightweight APIs.',
+  },
+  FastAPI: {
+    tier: 'BUILDING WITH',
+    project: 'Python Backend',
+    note: 'Exploring typed, high-performance Python APIs and modern backend architecture.',
+  },
+  Go: {
+    tier: 'LEARNING',
+    project: 'Go Development',
+    note: 'Currently expanding my backend engineering skills with Go and its ecosystem.',
+  },
+  'ASP.NET': {
+    tier: 'LEARNING',
+    project: 'Backend Engineering',
+    note: 'Expanding my backend toolkit with the .NET ecosystem and C# application development.',
+  },
+  'LLM Integration': {
+    tier: 'BUILDING WITH',
+    project: 'AI Experiments',
+    note: 'Exploring practical ways to integrate language models into real applications and workflows.',
+  },
+  'AI APIs': {
+    tier: 'BUILDING WITH',
+    project: 'AI-powered Features',
+    note: 'Working with AI APIs as application services rather than treating AI as a standalone feature.',
+  },
+  'Prompt Engineering': {
+    tier: 'BUILDING WITH',
+    project: 'AI Workflows',
+    note: 'Designing structured prompts and application workflows for more reliable model outputs.',
+  },
+  'Speech-to-Text': {
+    tier: 'BUILDING WITH',
+    project: 'Church AI Concepts',
+    note: 'Exploring speech-based interfaces and practical transcription workflows.',
+  },
+  'AI-assisted Workflows': {
+    tier: 'BUILDING WITH',
+    project: 'Product Experiments',
+    note: 'Exploring how AI can automate repetitive tasks and improve real-world application workflows.',
+  },
+  Cloudinary: {
+    tier: 'PRODUCTION',
+    project: 'WTBC Portal',
+    note: 'Used for media and profile image uploads, storage, transformations, and delivery.',
+  },
+  Vercel: {
+    tier: 'PRODUCTION',
+    project: 'Next.js Applications',
+    note: 'Used to deploy and host production frontend applications.',
+  },
+  Render: {
+    tier: 'PRODUCTION',
+    project: 'WordNest',
+    note: 'Used to deploy and run the NestJS backend and production API infrastructure.',
+  },
+  Git: {
+    tier: 'PRODUCTION',
+    project: 'Everyday Workflow',
+    note: 'Used throughout development for version control, feature work, debugging, and maintaining project history.',
+  },
+  GitHub: {
+    tier: 'PRODUCTION',
+    project: 'Open Source / Projects',
+    note: 'Used for repository hosting, collaboration, project management, and source control.',
+  },
+  Postman: {
+    tier: 'PRODUCTION',
+    project: 'API Development',
+    note: 'Used extensively for testing, debugging, and validating backend APIs.',
+  },
+  'TanStack Query': {
+    tier: 'PRODUCTION',
+    project: 'React Applications',
+    note: 'Used for server-state management, API fetching, caching, mutations, and asynchronous application state.',
+  },
+  Authentication: {
+    tier: 'PRODUCTION',
+    project: 'WTBC / Lummina Law',
+    note: 'Built authentication flows including access tokens, refresh tokens, verification, password reset, and protected routes.',
+  },
+  RBAC: {
+    tier: 'PRODUCTION',
+    project: 'Church Management System',
+    note: 'Implemented role-based access patterns for different levels of application permissions.',
+  },
+  Docker: {
+    tier: 'BUILDING WITH',
+    project: 'Development Infrastructure',
+    note: 'Used and explored for local development and infrastructure workflows where appropriate.',
+  },
+  'API Design': {
+    tier: 'PRODUCTION',
+    project: 'Backend Systems',
+    note: 'Designing structured endpoints, request/response contracts, validation, error handling, and service boundaries.',
+  },
+  HTML: {
+    tier: 'PRODUCTION',
+    project: 'Web Applications',
+    note: 'Used for semantic page structure, accessible interfaces, forms, and modern web applications.',
+  },
+  CSS: {
+    tier: 'PRODUCTION',
+    project: 'Modern UI Systems',
+    note: 'Used for responsive layouts, animations, component styling, and polished product interfaces.',
+  },
+  MUI: {
+    tier: 'PRODUCTION',
+    project: 'React Applications',
+    note: 'Used for component-based interfaces and dashboard experiences where a design system accelerates development.',
+  },
+  'Ant Design': {
+    tier: 'PRODUCTION',
+    project: 'React Applications',
+    note: 'Used for complex enterprise-style interfaces, forms, tables, and administrative dashboards.',
+  },
+}
+
+const CATEGORY_ICONS: Record<string, React.ReactNode> = {
+  FRONTEND: <Layers className="w-4 h-4 text-[#e65c24]" />,
+  BACKEND: <Server className="w-4 h-4 text-[#e65c24]" />,
+  'DATABASES & CLOUD': <Database className="w-4 h-4 text-[#e65c24]" />,
+  'AI & AUTOMATION': <Sparkles className="w-4 h-4 text-[#e65c24]" />,
+  ENGINEERING: <Terminal className="w-4 h-4 text-[#e65c24]" />,
+}
 
 export const SkillsMatrix: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('ALL')
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
-  // Contextual project provenance mapping
-  const skillProvenance: Record<string, { tier: string; project: string; note: string }> = {
-    Python: { tier: 'USED FOR', project: 'LEDGR / ResoniX / GroupDNA', note: 'Used for APIs, data analysis, machine learning pipelines, and backend logic.' },
-    Java: { tier: 'FOCUS', project: 'Coursework & Certs', note: 'Object-oriented programming, data structures, and core software design.' },
-    JavaScript: { tier: 'USED FOR', project: 'Web Apps / Portfolio', note: 'Modern frontend interfaces, asynchronous operations, and Node.js backends.' },
-    C: { tier: 'FOCUS', project: 'Core CS Coursework', note: 'Pointers, memory management, and computational foundations.' },
-    'C++': { tier: 'FOCUS', project: 'DSA / LeetCode', note: 'Algorithms, data structures, STL containers, and competitive programming.' },
-    SQL: { tier: 'USED FOR', project: 'RedFlag SQL / LEDGR', note: 'Complex queries, CTEs, aggregation, indexing, and relational schemas.' },
-    'Data Structures & Algorithms': { tier: 'FOCUS', project: 'DSU Curriculum & LeetCode', note: 'Trees, graphs, dynamic programming, sorting, searching, and algorithm design.' },
-    'Object-Oriented Programming': { tier: 'FOCUS', project: 'Multiple Projects', note: 'Encapsulation, inheritance, polymorphism, abstraction, and clean architecture.' },
-    'Database Management Systems': { tier: 'FOCUS', project: 'RedFlag & LEDGR', note: 'Relational schemas, normalization, transactions, and indexing.' },
-    'Operating Systems': { tier: 'FOCUS', project: 'Core CS Coursework', note: 'Processes, concurrency, threads, memory management, and file systems.' },
-    'Machine Learning': { tier: 'FOCUS', project: 'LEDGR & Hotel ML', note: 'Supervised classification, model evaluation, feature engineering, and anomaly detection.' },
-    'Generative AI': { tier: 'FOCUS', project: 'LEDGR & Experiments', note: 'LLM integration, prompt engineering, NIM microservices, and structured JSON output.' },
-    'Data Science': { tier: 'USED FOR', project: 'Bank Analytics / ResoniX', note: 'Exploratory data analysis, statistical patterns, and data visualization.' },
-    NumPy: { tier: 'USED FOR', project: 'GroupDNA', note: 'Array manipulation, matrix operations, and mathematical computations.' },
-    Pandas: { tier: 'USED FOR', project: 'Data Analysis Projects', note: 'DataFrames, cleaning, aggregation, grouping, and transforming structured datasets.' },
-    'Power BI': { tier: 'USED FOR', project: 'Hotel Analytics', note: 'Interactive dashboards, visual reporting, and business metrics tracking.' },
-    RapidMiner: { tier: 'USED FOR', project: 'Hotel Analytics', note: 'Data prep, decision trees, Naive Bayes, and cross-validation workflows.' },
-    NoSQL: { tier: 'FOCUS', project: 'Coursework / Projects', note: 'Document and key-value store concepts for semi-structured data.' },
-    HTML: { tier: 'USED FOR', project: 'Portfolio & Apps', note: 'Semantic HTML5 markup, accessibility, and modern page layouts.' },
-    CSS: { tier: 'USED FOR', project: 'Modern UI Systems', note: 'Tailwind CSS, responsive design, animations, and clean interfaces.' },
-    'Node.js': { tier: 'USED FOR', project: 'Job Finder App', note: 'Building RESTful APIs, routing, and backend server logic.' },
-    Git: { tier: 'USED FOR', project: 'Everyday Workflow', note: 'Branching, committing, tracking changes, and project version management.' },
-    GitHub: { tier: 'USED FOR', project: '@AyanfeIkujebi7', note: 'Hosting repositories, collaboration, project documentation, and version tracking.' },
-  }
-
-  const categoryIcons: Record<string, React.ReactNode> = {
-    LANGUAGES: <Code2 className="w-4 h-4 text-[#e65c24]" />,
-    'CORE COMPUTER SCIENCE': <Cpu className="w-4 h-4 text-[#e65c24]" />,
-    'AI & MACHINE LEARNING': <Sparkles className="w-4 h-4 text-[#e65c24]" />,
-    'DATA & ANALYTICS': <Database className="w-4 h-4 text-[#e65c24]" />,
-    'WEB DEVELOPMENT': <Layers className="w-4 h-4 text-[#e65c24]" />,
-    'ENGINEERING TOOLS': <Terminal className="w-4 h-4 text-[#e65c24]" />,
+  const handleSkillClick = (skill: string) => {
+    setHoveredSkill((prev) => (prev === skill ? null : skill))
   }
 
   const displayedCategories =
     activeCategory === 'ALL'
       ? SKILL_CATEGORIES
-      : SKILL_CATEGORIES.filter((c) => c.name === activeCategory)
+      : SKILL_CATEGORIES.filter((category) => category.name === activeCategory)
+
+  const activeMeta = hoveredSkill ? SKILL_PROVENANCE[hoveredSkill] : null
 
   return (
     <section
       id="skills"
       className="py-24 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-t border-white/[0.08]"
     >
-      {/* Chapter Marker & Title */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
         <div>
           <div className="flex items-center gap-2 font-mono text-xs text-[#e65c24] uppercase tracking-widest mb-3">
-            <span>02 // WHAT I WORK WITH</span>
+            <span>02 // WHAT I BUILD WITH</span>
           </div>
+
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#f4f3ef]">
             Skills &amp; Technologies
           </h2>
+
+          <p className="mt-5 max-w-2xl font-sans text-sm sm:text-base leading-relaxed text-[#9da0a8]">
+            A practical toolkit built through real applications, client work,
+            backend systems, and continuous experimentation.
+          </p>
         </div>
 
-        {/* Interactive Filter Pills */}
+        {/* Filter Pills */}
         <div className="flex flex-wrap gap-2 font-mono text-xs">
           <button
             type="button"
@@ -73,92 +343,94 @@ export const SkillsMatrix: React.FC = () => {
                 ? 'border-[#e65c24] text-[#e65c24] bg-[#e65c24]/10 shadow-[0_0_15px_rgba(230,92,36,0.2)]'
                 : 'border-white/10 text-[#9da0a8] hover:text-[#f4f3ef] hover:border-white/25 bg-[#111215]/60'
             }`}
-            data-cursor="FILTER"
           >
             ALL
           </button>
-          {SKILL_CATEGORIES.map((cat) => (
+
+          {SKILL_CATEGORIES.map((category) => (
             <button
-              key={cat.name}
+              key={category.name}
               type="button"
-              onClick={() => setActiveCategory(cat.name)}
+              onClick={() => setActiveCategory(category.name)}
               className={`px-3.5 py-1.5 transition-all border rounded-full ${
-                activeCategory === cat.name
+                activeCategory === category.name
                   ? 'border-[#e65c24] text-[#e65c24] bg-[#e65c24]/10 shadow-[0_0_15px_rgba(230,92,36,0.2)]'
                   : 'border-white/10 text-[#9da0a8] hover:text-[#f4f3ef] hover:border-white/25 bg-[#111215]/60'
               }`}
-              data-cursor="FILTER"
             >
-              {cat.name.split(' ')[0]}
+              {category.shortName}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Main Elevated Capability Cards Grid */}
+      {/* Category Cards */}
       <div className="grid grid-cols-1 gap-8 mb-16">
-        {displayedCategories.map((category, idx) => (
+        {displayedCategories.map((category, index) => (
           <div
             key={category.name}
-            className="skill-category-block p-5 sm:p-8 md:p-10 rounded-2xl bg-[#111215]/70 border border-white/[0.08] hover:border-white/20 transition-all duration-300 relative overflow-hidden backdrop-blur-sm"
+            className="p-5 sm:p-8 md:p-10 rounded-2xl bg-[#111215]/70 border border-white/[0.08] hover:border-white/20 transition-all duration-300 relative overflow-hidden backdrop-blur-sm"
           >
-            {/* Subtle category accent watermarking */}
-            <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5 pointer-events-none font-display font-black text-6xl sm:text-8xl text-white">
-              0{idx + 1}
+            {/* Category Number Background */}
+            <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5 pointer-events-none font-display font-black text-6xl sm:text-8xl text-white select-none">
+              0{index + 1}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
-              {/* Category Info Header */}
-              <div className="category-info-header lg:col-span-4 space-y-2">
+              {/* Category Info */}
+              <div className="lg:col-span-4 space-y-2">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[#e65c24]/10 border border-[#e65c24]/30 flex items-center justify-center">
-                    {categoryIcons[category.name] || <Sparkles className="w-4 h-4 text-[#e65c24]" />}
+                    {CATEGORY_ICONS[category.name] || (
+                      <Sparkles className="w-4 h-4 text-[#e65c24]" />
+                    )}
                   </div>
-                  <div>
-                    <h3 className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#f4f3ef]">
-                      {category.name}
-                    </h3>
-                  </div>
+
+                  <h3 className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#f4f3ef]">
+                    {category.name}
+                  </h3>
                 </div>
+
                 <p className="font-sans text-xs text-[#9da0a8] leading-relaxed max-w-sm pt-2">
                   {category.tagline}
                 </p>
               </div>
 
-              {/* Enhanced Interactive Skill Chips Grid */}
+              {/* Skill Chips */}
               <div className="lg:col-span-8 flex flex-wrap gap-3 items-center">
                 {category.skills.map((skill) => {
-                  const meta = skillProvenance[skill]
-                  const isHovered = hoveredSkill === skill
+                  const meta = SKILL_PROVENANCE[skill]
+                  const isSelected = hoveredSkill === skill
+
                   return (
                     <div
                       key={skill}
                       onMouseEnter={() => setHoveredSkill(skill)}
                       onMouseLeave={() => setHoveredSkill(null)}
-                      className={`skill-chip group relative p-3 sm:px-4 sm:py-3 rounded-xl border transition-all duration-200 cursor-default hover:scale-[1.02] ${
-                        isHovered
+                      onClick={() => handleSkillClick(skill)}
+                      className={`group relative p-3 sm:px-4 rounded-xl border transition-all duration-200 cursor-pointer select-none ${
+                        isSelected
                           ? 'border-[#e65c24] bg-[#18191c] shadow-[0_0_20px_rgba(230,92,36,0.15)] -translate-y-0.5'
                           : 'border-white/[0.08] bg-[#0c0d0e]/80 hover:border-white/25 hover:bg-[#141518]'
                       }`}
-                      data-cursor="TECH"
                     >
                       <div className="flex items-center gap-2">
-                        <span className="font-display text-sm sm:text-base font-semibold text-[#f4f3ef] tracking-tight group-hover:text-[#e65c24] transition-colors">
+                        <span
+                          className={`font-display text-sm sm:text-base font-semibold tracking-tight transition-colors ${
+                            isSelected
+                              ? 'text-[#e65c24]'
+                              : 'text-[#f4f3ef] group-hover:text-[#e65c24]'
+                          }`}
+                        >
                           {skill}
                         </span>
+
                         {meta && (
                           <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/[0.06] text-[#9da0a8] border border-white/[0.05]">
-                            {meta.project.split(' ')[0]}
+                            {meta.project.split(' / ')[0]}
                           </span>
                         )}
                       </div>
-
-                      {/* Micro tier tag on hover */}
-                      {meta && isHovered && (
-                        <div className="mt-1 text-[10px] font-mono text-[#e65c24] tracking-wider uppercase">
-                          {meta.tier}
-                        </div>
-                      )}
                     </div>
                   )
                 })}
@@ -168,20 +440,47 @@ export const SkillsMatrix: React.FC = () => {
         ))}
       </div>
 
-      {/* Dynamic Contextual Usage Strip */}
-      <div className="p-4 sm:p-5 rounded-xl border border-white/[0.08] bg-[#111215]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 font-mono text-xs">
+      {/* Contextual Usage Strip */}
+      <div className="p-4 sm:p-5 rounded-xl border border-white/[0.08] bg-[#111215]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 font-mono text-xs min-h-[56px]">
         <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#e65c24] animate-ping" />
-          <span className="text-[#5e6068] uppercase">// WHERE I USE IT:</span>
-          <span className="text-[#f4f3ef] font-semibold">
-            {hoveredSkill ? hoveredSkill : 'HOVER OVER ANY SKILL TO SEE DETAILS'}
+          <span className="w-2 h-2 rounded-full bg-[#e65c24] animate-ping flex-shrink-0" />
+
+          <span className="text-[#5e6068] uppercase flex-shrink-0">
+            // SELECTED:
           </span>
+
+          <span className="text-[#f4f3ef] font-semibold">
+            {hoveredSkill || 'FULL-STACK APPLICATIONS & DIGITAL PRODUCTS'}
+          </span>
+
+          {activeMeta && (
+            <span
+              className={`text-[10px] px-1.5 py-0.5 rounded border ${
+                activeMeta.tier === 'LEARNING'
+                  ? 'border-white/10 text-[#9da0a8] bg-white/[0.05]'
+                  : 'border-[#e65c24]/30 text-[#e65c24] bg-[#e65c24]/10'
+              }`}
+            >
+              {activeMeta.tier}
+            </span>
+          )}
         </div>
+
         <div className="text-[#9da0a8]">
-          {hoveredSkill && skillProvenance[hoveredSkill] ? (
-            <span className="text-[#e65c24] font-medium">{skillProvenance[hoveredSkill].note}</span>
+          {activeMeta ? (
+            <span
+              className={
+                activeMeta.tier === 'LEARNING'
+                  ? 'text-[#9da0a8]'
+                  : 'text-[#e65c24]'
+              }
+            >
+              {activeMeta.note}
+            </span>
           ) : (
-            <span>Technologies I&apos;ve used across my projects and coursework.</span>
+            <span>
+              Hover or tap a skill to see context and real-world application.
+            </span>
           )}
         </div>
       </div>
