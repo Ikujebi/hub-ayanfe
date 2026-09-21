@@ -176,11 +176,11 @@ export const AboutStatement: React.FC = () => {
               {/* Wide Picture Frame with Parallax */}
               <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-[#141517]">
                 <picture>
-                  <source srcSet="/images/sankalp-about-editorial.webp" type="image/webp" />
+                  <source srcSet="/images/Ayanfe-about-editorial.webp" type="image/webp" />
                   <img
                     ref={photoImgRef}
-                    src="/images/sankalp-about-editorial.jpg"
-                    alt="Sankalp Patil in foggy green landscape"
+                    src="/images/Ayanfe-about-editorial.jpg"
+                    alt="Ayanfe Patil in foggy green landscape"
                     className="w-full h-full object-cover object-center will-change-transform transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                     loading="lazy"
                     decoding="async"
@@ -192,7 +192,7 @@ export const AboutStatement: React.FC = () => {
 
               {/* Caption */}
               <div className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-2 bg-[#0c0d0e]/95 border-t border-white/10 font-mono text-[10px] text-[#9da0a8]">
-                <span className="text-[#eceae5]">SANKALP PATIL</span>
+                <span className="text-[#eceae5]">Ayanfe PATIL</span>
                 <span className="text-[#e65c24]">OUTDOORS</span>
               </div>
             </div>

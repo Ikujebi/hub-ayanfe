@@ -65,7 +65,7 @@ export const ContactSection: React.FC = () => {
   }
 
   const handleCopyQuery = () => {
-    const text = `Hi Sankalp,\n\nName: ${queryName || '[Name]'}\nEmail: ${queryEmail || '[Email]'}\n\nMessage:\n${queryText || 'I wanted to reach out regarding an opportunity / project.'}\n\nBest,\n${queryName || 'Visitor'}`
+    const text = `Hi Ayanfe,\n\nName: ${queryName || '[Name]'}\nEmail: ${queryEmail || '[Email]'}\n\nMessage:\n${queryText || 'I wanted to reach out regarding an opportunity / project.'}\n\nBest,\n${queryName || 'Visitor'}`
     navigator.clipboard.writeText(text)
     setQueryCopied(true)
     setTimeout(() => setQueryCopied(false), 2500)
@@ -74,7 +74,7 @@ export const ContactSection: React.FC = () => {
   const handleSendQuery = (e: React.FormEvent) => {
     e.preventDefault()
     const subject = encodeURIComponent(`[Portfolio Message] From ${queryName || 'Visitor'}`)
-    const body = encodeURIComponent(`Hi Sankalp,\n\n${queryText || 'I wanted to reach out regarding an opportunity / project.'}\n\nName: ${queryName || 'Not specified'}\nEmail: ${queryEmail || 'Not specified'}`)
+    const body = encodeURIComponent(`Hi Ayanfe,\n\n${queryText || 'I wanted to reach out regarding an opportunity / project.'}\n\nName: ${queryName || 'Not specified'}\nEmail: ${queryEmail || 'Not specified'}`)
     window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`
   }
 

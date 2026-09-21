@@ -1,4 +1,4 @@
-// Built using Hyperiux Vault: https://vault.hyperiux.com - Adapted for Sankalp Patil Portfolio
+// Built using Hyperiux Vault: https://vault.hyperiux.com - Adapted for Ayanfe Patil Portfolio
 
 "use client";
 
@@ -16,15 +16,15 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Curated authentic imagery matching Sankalp's actual engineering projects:
+// Curated authentic imagery matching Ayanfe's actual engineering projects:
 // 1. FastAPI & Python Backend Architecture (Skills & Code)
-// 2. Sankalp Patil Natural Editorial Portrait (Engineering Journey)
+// 2. Ayanfe Patil Natural Editorial Portrait (Engineering Journey)
 // 3. Live LEDGR AI Finance Controller Application (LEDGR Project)
 // 4. ResoniX Virality & NLP Sentiment Analytics (ResoniX Project)
 // 5. Hotel Booking Cancellation ML & PowerBI Dashboard (Hotel Predictor)
 // 6. GroupDNA WhatsApp Behavioral Analytics Terminal (GroupDNA)
 // 7. Dayananda Sagar University Bengaluru Campus (Education)
-// 8. SankalpPatil7 GitHub Repositories & Open Source (Code & Profiles)
+// 8. AyanfePatil7 GitHub Repositories & Open Source (Code & Profiles)
 const IMG = {
   skills: "/images/cards/skills.jpg",
   journey: "/images/cards/journey.jpg",

@@ -30,7 +30,7 @@ export const SkillsMatrix: React.FC = () => {
     CSS: { tier: 'USED FOR', project: 'Modern UI Systems', note: 'Tailwind CSS, responsive design, animations, and clean interfaces.' },
     'Node.js': { tier: 'USED FOR', project: 'Job Finder App', note: 'Building RESTful APIs, routing, and backend server logic.' },
     Git: { tier: 'USED FOR', project: 'Everyday Workflow', note: 'Branching, committing, tracking changes, and project version management.' },
-    GitHub: { tier: 'USED FOR', project: '@SankalpPatil7', note: 'Hosting repositories, collaboration, project documentation, and version tracking.' },
+    GitHub: { tier: 'USED FOR', project: '@AyanfePatil7', note: 'Hosting repositories, collaboration, project documentation, and version tracking.' },
   }
 
   const categoryIcons: Record<string, React.ReactNode> = {

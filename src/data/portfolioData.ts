@@ -40,8 +40,8 @@ export interface SkillCategory {
 }
 
 export const PERSONAL_INFO = {
-  name: 'Sankalp S Patil',
-  firstName: 'SANKALP',
+  name: 'Ayanfe S Patil',
+  firstName: 'Ayanfe',
   lastName: 'PATIL',
   role: 'Computer Science Engineer',
   positioning: 'Computer Science Engineer | AI/ML & Full-Stack Developer',
@@ -51,11 +51,11 @@ export const PERSONAL_INFO = {
   graduationYear: '2028',
   cgpa: '8.3 / 10',
   currentYear: 'Computer Science Student',
-  email: 'sankalppatil24may@gmail.com',
+  email: 'Ayanfepatil24may@gmail.com',
   phone: '+91 7348818855',
-  github: 'https://github.com/SankalpPatil7',
-  linkedin: 'https://www.linkedin.com/in/sankalp-patil-426580318/',
-  leetcode: 'https://leetcode.com/u/Sankalp_Patil/',
+  github: 'https://github.com/AyanfePatil7',
+  linkedin: 'https://www.linkedin.com/in/Ayanfe-patil-426580318/',
+  leetcode: 'https://leetcode.com/u/Ayanfe_Patil/',
   summary:
     "I'm a Computer Science student who enjoys building things, solving problems, and learning by doing. I'm particularly interested in software development, data, machine learning, and generative AI.",
   statementBig: "I LIKE TURNING IDEAS INTO THINGS PEOPLE CAN ACTUALLY USE.",
@@ -69,7 +69,7 @@ export const FEATURED_PROJECTS: Project[] = [
     subtitle: 'AI-Powered Finance Controller & Auditor',
     year: '2026',
     technologies: ['Python', 'FastAPI', 'SQLite', 'Machine Learning', 'NVIDIA NIM / LLM'],
-    githubUrl: 'https://github.com/SankalpPatil7/Ledgr---Finance-AI',
+    githubUrl: 'https://github.com/AyanfePatil7/Ledgr---Finance-AI',
     liveUrl: 'https://ledgr-finance-ai.vercel.app/',
     summary:
       'An AI-powered finance controller for auditing transactions, settlements, and merchant activity.',
@@ -109,8 +109,8 @@ export const FEATURED_PROJECTS: Project[] = [
       'Plotly',
       'PostgreSQL',
     ],
-    githubUrl: 'https://github.com/SankalpPatil7/Resonix-Social-Engagement-Analytics',
-    liveUrl: 'https://sankalppatil7-resonix-social-engagement-ana-dashboardapp-izgguh.streamlit.app/',
+    githubUrl: 'https://github.com/AyanfePatil7/Resonix-Social-Engagement-Analytics',
+    liveUrl: 'https://Ayanfepatil7-resonix-social-engagement-ana-dashboardapp-izgguh.streamlit.app/',
     summary:
       'A social analytics platform for understanding content performance, audience sentiment, experiments, and trends.',
     architectureNodes: [
@@ -137,7 +137,7 @@ export const FEATURED_PROJECTS: Project[] = [
     subtitle: 'Revenue Optimization & Booking Cancellation Analysis',
     year: '2026',
     technologies: ['RapidMiner', 'Power BI', 'Machine Learning', 'Data Mining'],
-    githubUrl: 'https://github.com/SankalpPatil7/Hotel-booking-analysis-ml',
+    githubUrl: 'https://github.com/AyanfePatil7/Hotel-booking-analysis-ml',
     summary:
       'Using hotel booking data to understand cancellations, guest behavior, and revenue opportunities.',
     architectureNodes: [
@@ -163,7 +163,7 @@ export const FEATURED_PROJECTS: Project[] = [
     subtitle: 'WhatsApp Chat Behavioral Analytics System',
     year: '2026',
     technologies: ['Python', 'NumPy', 'datetime'],
-    githubUrl: 'https://github.com/SankalpPatil7/GroupDNA-WhatsApp-Chat-Analyzer',
+    githubUrl: 'https://github.com/AyanfePatil7/GroupDNA-WhatsApp-Chat-Analyzer',
     summary:
       'Turning exported group conversations into patterns around activity, timing, and interaction.',
     architectureNodes: [
@@ -191,7 +191,7 @@ export const ARCHIVE_PROJECTS: ArchiveProject[] = [
     subtitle: 'Transaction monitoring & behavioral anomaly queries',
     year: '2026',
     technologies: ['MySQL', 'SQL Window Functions', 'CTEs', 'Data Aggregation'],
-    githubUrl: 'https://github.com/SankalpPatil7/Redflag-sql-fraud-detection',
+    githubUrl: 'https://github.com/AyanfePatil7/Redflag-sql-fraud-detection',
     description:
       'Analyzed a financial dataset of ~200,000 transactions to uncover fraudulent user and merchant operations across 12 behavioral patterns.',
     patternsOrFeatures: [
@@ -208,7 +208,7 @@ export const ARCHIVE_PROJECTS: ArchiveProject[] = [
     subtitle: 'Automated statement normalization & Z-score analytics',
     year: '2026',
     technologies: ['Python', 'Pandas', 'Z-Score Analysis', 'Data Cleaning'],
-    githubUrl: 'https://github.com/SankalpPatil7/Bank-transaction-analysis-system',
+    githubUrl: 'https://github.com/AyanfePatil7/Bank-transaction-analysis-system',
     description:
       'A data analytics system that cleans raw bank statements, standardizes currency formats, extracts normalized merchant names, and isolates unusual transactions using statistical Z-scores.',
     patternsOrFeatures: [
