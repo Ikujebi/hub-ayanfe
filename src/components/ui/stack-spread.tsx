@@ -1,4 +1,4 @@
-// Built using Hyperiux Vault: https://vault.hyperiux.com - Adapted for Ayanfe Patil Portfolio
+// Built using Hyperiux Vault: https://vault.hyperiux.com - Adapted for Ayanfe Ikujebi Portfolio
 
 "use client";
 
@@ -18,13 +18,13 @@ import { cn } from "@/lib/utils";
 
 // Curated authentic imagery matching Ayanfe's actual engineering projects:
 // 1. FastAPI & Python Backend Architecture (Skills & Code)
-// 2. Ayanfe Patil Natural Editorial Portrait (Engineering Journey)
+// 2. Ayanfe Ikujebi Natural Editorial Portrait (Engineering Journey)
 // 3. Live LEDGR AI Finance Controller Application (LEDGR Project)
 // 4. ResoniX Virality & NLP Sentiment Analytics (ResoniX Project)
 // 5. Hotel Booking Cancellation ML & PowerBI Dashboard (Hotel Predictor)
 // 6. GroupDNA WhatsApp Behavioral Analytics Terminal (GroupDNA)
-// 7. Dayananda Sagar University Bengaluru Campus (Education)
-// 8. AyanfePatil7 GitHub Repositories & Open Source (Code & Profiles)
+// 7. University of Lagos Bengaluru Campus (Education)
+// 8. AyanfeIkujebi7 GitHub Repositories & Open Source (Code & Profiles)
 const IMG = {
   skills: "/images/cards/skills.jpg",
   journey: "/images/cards/journey.jpg",
@@ -168,7 +168,7 @@ export const DEFAULT_THEME_CARDS: StackSpreadCard[] = [
   {
     item: {
       src: IMG.education,
-      alt: "Dayananda Sagar University Education",
+      alt: "University of Lagos Education",
       label: "08 // EDUCATION",
       href: "#education",
     },

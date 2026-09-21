@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenIntro }) => {
         >
           <div className="w-2 h-2 rounded-full bg-[#e65c24] transition-transform duration-300 group-hover:scale-150" />
           <span className="font-display font-bold tracking-tight text-[#f4f3ef] text-sm md:text-base">
-            Ayanfe <span className="text-[#9da0a8] font-mono font-normal">S PATIL</span>
+            Ayanfe <span className="text-[#9da0a8] font-mono font-normal">S Ikujebi</span>
           </span>
         </a>
 
@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenIntro }) => {
                 rel="noopener noreferrer"
                 className="text-[#e65c24]"
               >
-                @AyanfePatil7
+                @AyanfeIkujebi7
               </a>
             </div>
             <div className="flex justify-between items-center">
@@ -162,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenIntro }) => {
                 rel="noopener noreferrer"
                 className="text-[#e65c24]"
               >
-                @Ayanfe_Patil
+                @Ayanfe_Ikujebi
               </a>
             </div>
             <div className="flex justify-between items-center">

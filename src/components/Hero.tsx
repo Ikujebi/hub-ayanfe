@@ -246,7 +246,7 @@ export const Hero: React.FC = () => {
                     <img
                       ref={photoImgRef}
                       src="/images/Ayanfe-hero-portrait.jpg"
-                      alt="Ayanfe Patil in foggy landscape"
+                      alt="Ayanfe Ikujebi in foggy landscape"
                       className="w-full h-full object-cover object-center will-change-transform transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                       loading="eager"
                       decoding="async"
@@ -259,7 +259,7 @@ export const Hero: React.FC = () => {
 
                 {/* Sub-frame Caption */}
                 <div className="flex items-center justify-between px-3 py-2 bg-[#0c0d0e]/95 border-t border-white/10 font-mono text-[10px] text-[#9da0a8]">
-                  <span className="text-[#f4f3ef] font-medium">Ayanfe PATIL</span>
+                  <span className="text-[#f4f3ef] font-medium">Ayanfe Ikujebi</span>
                   <span className="text-[#e65c24]">BENGALURU, INDIA</span>
                 </div>
               </div>

@@ -496,7 +496,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
             alt="Ayanfe Thumbnail"
             className="w-5 h-5 rounded-full object-cover object-top border border-white/20"
           />
-          <span className="text-xs font-mono font-medium text-[#f4f3ef] tracking-normal">Ayanfe P.</span>
+          <span className="text-xs font-mono font-medium text-[#f4f3ef] tracking-normal">Ayanfe I.</span>
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
         </div>
 
@@ -519,7 +519,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
           </button>
 
           <span className="hidden sm:inline-block px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06] text-[11px] font-mono text-[#5e6068]">
-            DSU // BENGALURU
+            AWARRI
           </span>
         </div>
       </div>
@@ -621,7 +621,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
             Hey, glad you're here. Take a look around.
           </p>
           <p className="text-[11px] font-mono text-[#5e6068]">
-            Ayanfe S Patil // Portfolio 2026
+            Ayanfe S Ikujebi // Portfolio 2026
           </p>
         </div>
 

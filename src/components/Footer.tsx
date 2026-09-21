@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
         {/* Identity & Positioning */}
         <div className="space-y-1">
           <div className="font-display font-bold text-sm text-[#f4f3ef] tracking-tight">
-            Ayanfe PATIL
+            Ayanfe Ikujebi
           </div>
           <div className="text-[11px] text-[#5e6068]">
             AI / ML <span className="text-[#e65c24]">·</span> SOFTWARE <span className="text-[#e65c24]">·</span> DATA
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
         {/* Copyright & Scroll to Top */}
         <div className="flex items-center justify-between w-full md:w-auto gap-6">
           <span className="text-[11px] text-[#5e6068]">
-            &copy; 2026 Ayanfe PATIL
+            &copy; 2026 Ayanfe Ikujebi
           </span>
           <button
             type="button"
