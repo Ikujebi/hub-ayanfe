@@ -621,7 +621,7 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ isOpen, onClose }) => 
             Hey, glad you're here. Take a look around.
           </p>
           <p className="text-[11px] font-mono text-[#5e6068]">
-            Ayanfe S Ikujebi // Portfolio 2026
+            Ayanfe K Ikujebi // Portfolio 2026
           </p>
         </div>
 
