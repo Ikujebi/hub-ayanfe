@@ -9,12 +9,12 @@ export const LedgrChapter: React.FC = () => {
   const [selectedQueryIdx, setSelectedQueryIdx] = useState<number>(0)
 
   const simulatedTxns = [
-    { id: 'TXN-8841', entity: 'Stripe Global Payout Batch', amount: '₹84,200', riskScore: 0.04 },
-    { id: 'TXN-8842', entity: 'Cloudflare Enterprise CDN', amount: '₹12,499', riskScore: 0.12 },
-    { id: 'TXN-8843', entity: 'Rapid Burst High-Frequency Payout', amount: '₹1,94,500', riskScore: 0.88 },
-    { id: 'TXN-8844', entity: 'Razorpay Merchant Disbursement', amount: '₹42,100', riskScore: 0.08 },
-    { id: 'TXN-8845', entity: 'Overnight Micro-Refund Cluster', amount: '₹3,250', riskScore: 0.76 },
-  ]
+  { id: 'TXN-8841', entity: 'Paystack Merchant Settlement Batch', amount: '₦2,840,000', riskScore: 0.04 },
+  { id: 'TXN-8842', entity: 'MainOne Fiber Enterprise Subscription', amount: '₦1,250,000', riskScore: 0.12 },
+  { id: 'TXN-8843', entity: 'High-Volume Interbank Instant Transfer', amount: '₦18,500,000', riskScore: 0.88 },
+  { id: 'TXN-8844', entity: 'Flutterwave Agency Banking Disbursement', amount: '₦750,000', riskScore: 0.08 },
+  { id: 'TXN-8845', entity: 'Overnight Airtime Auto-Recharge Cluster', amount: '₦45,000', riskScore: 0.76 },
+]
 
   const aiQueries = [
     {
